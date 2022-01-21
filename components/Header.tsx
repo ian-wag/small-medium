@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-function Header() {
+const Header = () => {
   return (
     <header className="flex justify-between p-5 max-w-7xl mx-auto">
       <div className="flex items-center space-x-5">
@@ -21,6 +21,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

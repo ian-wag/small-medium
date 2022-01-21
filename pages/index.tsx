@@ -22,7 +22,7 @@ export default function Home({ posts }: Props) {
             <span className="underline decoration-black decoration-4">Small</span> is a place to
             write, read, and connect
           </h1>
-          <h2 className="">
+          <h2>
             It's easy and free to post your thinking on any topic and connect with millions of
             readers.
           </h2>
@@ -45,7 +45,7 @@ export default function Home({ posts }: Props) {
                 src={urlFor(post.mainImage).url()!}
                 alt="post image"
               />
-              <div className="flex justify-between p-5 bg-white">
+              <div className="flex justify-between px-5 py-3 bg-white">
                 <div>
                   <p className="text-lg font-bold">{post.title}</p>
                   <p>{post.description}</p>
