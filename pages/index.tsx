@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Header from '../components/Header';
+import Header from '../components/HeaderYellow';
 import { sanityClient, urlFor } from '../sanity';
 import { Post } from '../typings';
 
@@ -12,7 +12,7 @@ export default function Home({ posts }: Props) {
   return (
     <div className="max-w-7xl mx-auto relative">
       <Head>
-        <title>Small. A Medium like Blog</title>
+        <title>Small – A medium like blog.</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -36,7 +36,7 @@ export default function Home({ posts }: Props) {
           alt="S logo"
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 h-[200vh]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6">
         {posts.map((post) => (
           <Link key={post._id} href={`/post/${post.slug.current}`}>
             <div className="border rounded-md group cursor-pointer overflow-hidden">
