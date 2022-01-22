@@ -5,7 +5,7 @@ const Header = () => {
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
-    if (window.scrollY >= 380) {
+    if (window.scrollY >= 370) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -55,7 +55,7 @@ const Header = () => {
         <h3
           className={
             navbar
-              ? 'border border-green-600 text-black px-4 py-1 rounded-full cursor-pointer transition duration-500'
+              ? 'border border-black text-green-600 px-4 py-1 rounded-full cursor-pointer transition duration-500'
               : 'border border-black bg-black text-white px-4 py-1 rounded-full cursor-pointer transition duration-500'
           }
         >
