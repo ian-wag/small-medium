@@ -10,13 +10,13 @@ interface Props {
 
 export default function Home({ posts }: Props) {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto relative">
       <Head>
         <title>Small. A Medium like Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="flex justify-evenly items-center bg-yellow-400 border-y border-black py-10 lg:py-0">
+      <div className="flex justify-evenly items-center bg-yellow-400 border-b border-black py-10 lg:py-0">
         <div className="px-10 space-y-5">
           <h1 className="text-6xl max-w-xl font-serif">
             <span className="underline decoration-black decoration-4">Small</span> is a place to
@@ -36,7 +36,7 @@ export default function Home({ posts }: Props) {
           alt="S logo"
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 h-[200vh]">
         {posts.map((post) => (
           <Link key={post._id} href={`/post/${post.slug.current}`}>
             <div className="border rounded-md group cursor-pointer overflow-hidden">
