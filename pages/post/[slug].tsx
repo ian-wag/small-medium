@@ -5,11 +5,24 @@ import { Post } from '../../typings';
 import PortableText from 'react-portable-text';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
+interface FormInput {
+  _id: string;
+  name: string;
+  email: string;
+  comment: string;
+}
+
 interface Props {
   post: Post;
 }
 
 const Posts = ({ post }: Props) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return (
     <main>
       <Header />
@@ -60,9 +73,12 @@ const Posts = ({ post }: Props) => {
         <h4 className="text-3xl font-bold">Leave a comment below!</h4>
         <hr className="py-3 mt-2" />
 
+        <input {...register('_id')} name="_id" value={post._id} type="hidden" />
+
         <label className="block mb-5">
           <span className="text-gray-700">Name</span>
           <input
+            {...(register('name'), { required: true })}
             className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
             placeholder="Name"
             type="text"
@@ -71,6 +87,7 @@ const Posts = ({ post }: Props) => {
         <label className="block mb-5">
           <span className="text-gray-700">Email</span>
           <input
+            {...(register('email'), { required: true })}
             className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
             placeholder="email"
             type="text"
@@ -79,11 +96,24 @@ const Posts = ({ post }: Props) => {
         <label className="block mb-5">
           <span className="text-gray-700">Comment</span>
           <textarea
+            {...(register('comment'), { required: true })}
             className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-400 outline-none focus:ring"
             placeholder="comment"
             rows={8}
           />
         </label>
+
+        <div className="flex flex-col p-5">
+          {errors.name && <span className="text-red-500">- The Name Field is required</span>}
+          {errors.email && <span className="text-red-500">- The Email Field is required</span>}
+          {errors.comment && <span className="text-red-500">- The Comment Field is required</span>}
+        </div>
+
+        <input
+          type="submit"
+          value="Submit"
+          className="shadow bg-yellow-400 hover:bg-yellow-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded cursor-pointer"
+        />
       </form>
     </main>
   );
