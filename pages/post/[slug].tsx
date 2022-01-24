@@ -14,7 +14,7 @@ const Posts = ({ post }: Props) => {
       <Header />
 
       <img
-        className="w-full h-40 object-cover"
+        className="w-full h-40 object-cover max-w-7xl mx-auto"
         src={urlFor(post.mainImage).url()!}
         alt="main post image"
       />
@@ -33,7 +33,7 @@ const Posts = ({ post }: Props) => {
             {new Date(post._createdAt).toLocaleDateString()}
           </p>
         </div>
-        <div>
+        <div className="mt-10">
           <PortableText
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
@@ -51,6 +51,39 @@ const Posts = ({ post }: Props) => {
           />
         </div>
       </article>
+
+      <hr className="max-w-7xl my-5 mx-auto border border-yellow-400" />
+
+      <form className="flex flex-col p-5 max-w-2xl mx-auto mb-10">
+        <h3 className="text-sm text-yellow-400">Enjoy this article?</h3>
+        <h4 className="text-3xl font-bold">Leave a comment below!</h4>
+        <hr className="py-3 mt-2" />
+
+        <label className="block mb-5">
+          <span className="text-gray-700">Name</span>
+          <input
+            className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
+            placeholder="Name"
+            type="text"
+          />
+        </label>
+        <label className="block mb-5">
+          <span className="text-gray-700">Email</span>
+          <input
+            className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
+            placeholder="email"
+            type="text"
+          />
+        </label>
+        <label className="block mb-5">
+          <span className="text-gray-700">Comment</span>
+          <textarea
+            className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-400 outline-none focus:ring"
+            placeholder="comment"
+            rows={8}
+          />
+        </label>
+      </form>
     </main>
   );
 };
