@@ -52,15 +52,17 @@ const Header = () => {
         }
       >
         <h3 className="hidden md:inline-flex">Sign In</h3>
-        <h3
-          className={
-            navbar
-              ? 'border border-black text-green-600 px-4 py-1 rounded-full cursor-pointer transition duration-500'
-              : 'border border-black bg-black text-white px-4 py-1 rounded-full cursor-pointer transition duration-500'
-          }
-        >
-          Get Started
-        </h3>
+        <Link href="signup">
+          <h3
+            className={
+              navbar
+                ? 'border border-black text-green-600 px-4 py-1 rounded-full cursor-pointer transition duration-500'
+                : 'border border-black bg-black text-white px-4 py-1 rounded-full cursor-pointer transition duration-500'
+            }
+          >
+            Get Started
+          </h3>
+        </Link>
       </div>
     </header>
   );

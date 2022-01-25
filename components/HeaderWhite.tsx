@@ -16,9 +16,11 @@ const Header = () => {
       </div>
       <div className="flex items-center space-x-5 text-green-600 cursor-pointer">
         <h3 className="hidden md:inline-flex">Sign In</h3>
-        <h3 className="border border-black text-green-600 px-4 py-1 rounded-full cursor-pointer">
-          Get Started
-        </h3>
+        <Link href="signup">
+          <h3 className="border border-black text-green-600 px-4 py-1 rounded-full cursor-pointer">
+            Get Started
+          </h3>
+        </Link>
       </div>
     </header>
   );
