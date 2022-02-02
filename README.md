@@ -1,10 +1,10 @@
-# Small. A medium like website
+# Small. A medium like website.
 
 #### 📝 Description
 
 A blog site.
 
-### 👉 [LIVE DEMO]()
+### 👉 [LIVE DEMO](https://small-medium.vercel.app/)
 
 #### 🛠️ Built with
 
