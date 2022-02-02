@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const Header = () => {
+const HeaderYellow = () => {
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
@@ -68,4 +68,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderYellow;

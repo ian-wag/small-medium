@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
-const Header = () => {
+const HeaderWhite = () => {
   return (
     <header className="sticky top-0 z-50 flex justify-between p-5 max-w-7xl mx-auto bg-white">
       <div className="flex items-center space-x-5">
@@ -26,4 +25,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderWhite;
