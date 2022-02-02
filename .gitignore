@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 smallmedium/node_modules
+smallmedium/dist
 
 # testing
 /coverage
