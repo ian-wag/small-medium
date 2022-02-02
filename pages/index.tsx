@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Header from '../components/HeaderYellow';
+import HeaderWhite from '../components/HeaderWhite';
 import { sanityClient, urlFor } from '../sanity';
 import { Post } from '../typings';
 
@@ -15,7 +15,7 @@ export default function Home({ posts }: Props) {
         <title>Small – A medium like blog.</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <HeaderWhite />
       <div className="flex justify-evenly items-center bg-yellow-400 border-b border-black py-10 lg:py-0">
         <div className="px-10 space-y-5">
           <h1 className="text-6xl max-w-xl font-serif">
