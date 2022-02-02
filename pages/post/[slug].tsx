@@ -100,12 +100,17 @@ const Posts = ({ post }: Props) => {
           <h4 className="text-3xl font-bold">Leave a comment below!</h4>
           <hr className="py-3 mt-2" />
 
-          <input {...register('_id')} name="_id" value={post._id} type="hidden" />
+          <input
+            {...(register('_id'), { required: true })}
+            name="_id"
+            value={post._id}
+            type="hidden"
+          />
 
           <label className="block mb-5">
             <span className="text-gray-700">Name</span>
             <input
-              {...register('name')}
+              {...(register('name'), { required: true })}
               className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
               placeholder="Name"
               type="text"
@@ -114,7 +119,7 @@ const Posts = ({ post }: Props) => {
           <label className="block mb-5">
             <span className="text-gray-700">Email</span>
             <input
-              {...register('email')}
+              {...(register('email'), { required: true })}
               className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
               placeholder="email"
               type="text"
@@ -123,7 +128,7 @@ const Posts = ({ post }: Props) => {
           <label className="block mb-5">
             <span className="text-gray-700">Comment</span>
             <textarea
-              {...register('comment')}
+              {...(register('comment'), { required: true })}
               className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-400 outline-none focus:ring"
               placeholder="comment"
               rows={8}
