@@ -26,9 +26,11 @@ export default function Home({ posts }: Props) {
             It's easy and free to post your thinking on any topic and connect with millions of
             readers.
           </h2>
-          <h3 className="bg-white w-32 border border-black px-4 py-2 text-center rounded-full cursor-pointer">
-            Start Writing
-          </h3>
+          <Link href="signup">
+            <h3 className="bg-white w-32 border border-black px-4 py-2 text-center rounded-full cursor-pointer">
+              Start Writing
+            </h3>
+          </Link>
         </div>
         <img
           className="hidden md:inline-flex h-48 py-10 px-14 lg:h-full"

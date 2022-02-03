@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import HeaderWhite from '../../components/HeaderWhite';
 import { sanityClient, urlFor } from '../../sanity';
 import { Post } from '../../typings';
@@ -6,15 +6,14 @@ import PortableText from 'react-portable-text';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState } from 'react';
 
+interface Props {
+  post: Post;
+}
 interface IFormInput {
   _id: string;
   name: string;
   email: string;
   comment: string;
-}
-
-interface Props {
-  post: Post;
 }
 
 const Posts = ({ post }: Props) => {
@@ -104,7 +103,7 @@ const Posts = ({ post }: Props) => {
           <label className="block mb-5">
             <span className="text-gray-700">Name</span>
             <input
-              {...register('name')}
+              {...register('name', { required: true })}
               className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
               placeholder="Name"
               type="text"
@@ -113,16 +112,16 @@ const Posts = ({ post }: Props) => {
           <label className="block mb-5">
             <span className="text-gray-700">Email</span>
             <input
-              {...register('email')}
+              {...register('email', { required: true })}
               className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
               placeholder="email"
-              type="text"
+              type="email"
             />
           </label>
           <label className="block mb-5">
             <span className="text-gray-700">Comment</span>
             <textarea
-              {...register('comment')}
+              {...register('comment', { required: true })}
               className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-400 outline-none focus:ring"
               placeholder="comment"
               rows={8}
@@ -163,7 +162,7 @@ const Posts = ({ post }: Props) => {
 
 export default Posts;
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const query = `*[_type == 'post']{
     _id,
     slug {
