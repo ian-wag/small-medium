@@ -95,45 +95,48 @@ const Posts = ({ post }: Props) => {
           className="flex flex-col p-5 max-w-2xl mx-auto mb-10"
         >
           <h3 className="text-sm text-yellow-400">Enjoy this article?</h3>
-          <h4 className="text-3xl font-bold">Leave a comment below!</h4>
+          <h4 className="text-3xl font-bold">Leave A Comment Below!</h4>
           <hr className="py-3 mt-2" />
 
           <input {...register('_id')} name="_id" value={post._id} type="hidden" />
 
-          <label className="block mb-5">
-            <span className="text-gray-700">Name</span>
-            <input
-              {...register('name', { required: true })}
-              className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
-              placeholder="Name"
-              type="text"
-            />
+          <label htmlFor="nameField" className="block text-gray-700 mb-1">
+            Name
           </label>
-          <label className="block mb-5">
-            <span className="text-gray-700">Email</span>
-            <input
-              {...register('email', { required: true })}
-              className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring"
-              placeholder="email"
-              type="email"
-            />
+          <input
+            {...register('name', { required: true })}
+            className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring mb-5"
+            type="text"
+            id="nameField"
+            placeholder="Biz Stone"
+          />
+
+          <label htmlFor="emailField" className="block text-gray-700 mb-1">
+            Email
           </label>
-          <label className="block mb-5">
-            <span className="text-gray-700">Comment</span>
-            <textarea
-              {...register('comment', { required: true })}
-              className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-400 outline-none focus:ring"
-              placeholder="comment"
-              rows={8}
-            />
+          <input
+            {...register('email', { required: true })}
+            className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-400 outline-none focus:ring mb-5"
+            type="email"
+            id="emailField"
+            placeholder="name@example.com"
+          />
+
+          <label htmlFor="commentField" className="block text-gray-700 mb-1">
+            Comment
           </label>
+          <textarea
+            {...register('comment', { required: true })}
+            className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-400 outline-none focus:ring mb-5"
+            placeholder="What are your thoughts?"
+            rows={8}
+            id="commentField"
+          />
 
           <div className="flex flex-col p-5">
-            {errors.name && <span className="text-red-500">- The Name Field is required</span>}
-            {errors.email && <span className="text-red-500">- The Email Field is required</span>}
-            {errors.comment && (
-              <span className="text-red-500">- The Comment Field is required</span>
-            )}
+            {errors.name && <span className="text-red-500">- Name Field Is Required</span>}
+            {errors.email && <span className="text-red-500">- Email Field Is Required</span>}
+            {errors.comment && <span className="text-red-500">- Comment Field Is Required</span>}
           </div>
 
           <input
